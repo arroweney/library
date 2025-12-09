@@ -14,12 +14,9 @@ class LibraryBook(models.Model):
     )
     
     # Category field (Task 3)
-    category_ids = fields.Many2many(
+    category_id = fields.Many2many(
         'library.book.category',  # Connect to our new model
         string='Categories',
         help='Select categories for this book',
-        # Optional: relation table name
-        # relation='library_book_category_rel',
-        # column1='book_id',
-        # column2='category_id',
     )
+    

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_library_book_inherit" model="ir.ui.view">
+        <field name="name">library.book.view.form.inherit.extensions</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="inside">
+                <!-- Only category_id here; author_id will be shown in the header/title -->
+                <field name="category_id" widget="many2many_tags"/>
+            </xpath>
+
+            <!-- Add author_id to the form header/title -->
+            <xpath expr="//sheet" position="before">
+                <div class="oe_title">
+                    <label for="author_id" string="Author"/>
+                    <h1>
+                        <field name="author_id"/>
+                    </h1>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_tree_library_book_inherit" model="ir.ui.view">
+        <field name="name">library.book.view.tree.inherit.extensions</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="author_id"/>
+                <field name="category_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

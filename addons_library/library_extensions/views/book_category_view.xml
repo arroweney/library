@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Tree/List View for Categories -->
+    <!-- Category List View (Tree) -->
     <record id="view_tree_book_category" model="ir.ui.view">
         <field name="name">library.book.category.tree</field>
         <field name="model">library.book.category</field>
         <field name="arch" type="xml">
             <tree string="Book Categories">
                 <field name="name"/>
-                <field name="description"/>
             </tree>
         </field>
     </record>
     
-    <!-- Form View for Categories -->
+    <!-- Category Form View -->
     <record id="view_form_book_category" model="ir.ui.view">
         <field name="name">library.book.category.form</field>
         <field name="model">library.book.category</field>
@@ -22,30 +21,27 @@
                     <div class="oe_title">
                         <label for="name" string="Category Name"/>
                         <h1>
-                            <field name="name" placeholder="e.g., Fiction, Science, History..."/>
+                            <field name="name"/>
                         </h1>
                     </div>
-                    
-                    <group>
-                        <group>
-                            <field name="name" required="1"/>
-                            <field name="description"/>
-                        </group>
-                    </group>
+                    <!-- single input: shown in the title -->
                 </sheet>
             </form>
         </field>
     </record>
     
-    <!-- Action to open Categories window -->
+    <!-- Action to open Categories -->
     <record id="action_book_category" model="ir.actions.act_window">
         <field name="name">Book Categories</field>
         <field name="res_model">library.book.category</field>
         <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create your first book category
-            </p>
-        </field>
     </record>
+    
+    <!-- Menu item under Library -->
+    <menuitem id="menu_library_book_category"
+              name="Book Categories"
+              parent="library.library_menu_main"
+              action="action_book_category"
+              sequence="20"/>
+    
 </odoo>

@@ -7,12 +7,15 @@ class LibraryBookCategory(models.Model):
     
     name = fields.Char(
         string='Category Name',
-        required=True,    
-        unique=True,      
+        required=True,
         help='Name of the book category (e.g., Fiction, Science, History)'
     )
-    
+
     description = fields.Text(
         string='Description',
         help='Details about this category'
     )
+
+    _sql_constraints = [
+        ('name_unique', 'unique(name)', 'Category name must be unique.'),
+    ]

@@ -1,7 +1,7 @@
 {
     'name': 'Library Extensions',
     'version': '1.0',
-    'summary': 'Extensions for Main Library',
+    'summary': 'Pre-assessment exercise for Odev Solutions',
     'description': """
 This module extends the Library module with additional features.
 
@@ -15,13 +15,13 @@ Features:
     'website': 'https://www.guthib.com',
     'depends': ['library'],
     'data': [
-        'views/book_author_view.xml',
+        'security/ir.model.access.csv',
         'views/book_category_view.xml',
-        'views/library_menu.xml',
+        'views/library_book_inherit_views.xml',
     ],
     'demo': [],
     'installable': True,
-    'application': False,
-    'auto_install': False,
+    'application': True,
+    'auto_install': True,
     'license': 'LGPL-3',
 }
