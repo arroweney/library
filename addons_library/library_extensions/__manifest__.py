@@ -1,16 +1,18 @@
 {
     'name': 'Library Extensions',
     'version': '1.0',
-    'summary': 'Extensions for Library Management System',
+    'summary': 'Extensions for Main Library',
     'description': """
 This module extends the Library module with additional features.
+
 Features:
+
 - Add author field to books
 - Add book categories
 """,
     'category': 'Library',
-    'author': 'Your Name',
-    'website': 'https://www.example.com',
+    'author': 'arroweney',
+    'website': 'https://www.guthib.com',
     'depends': ['library'],
     'data': [
         'views/book_author_view.xml',

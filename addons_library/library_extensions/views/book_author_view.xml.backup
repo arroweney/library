@@ -1,0 +1,20 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add author + category fields to book form -->
+    <record id="view_form_book_inherit_author" model="ir.ui.view">
+        <field name="name">library.book.form.inherit.author</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_form"/> 
+        <field name="arch" type="xml">
+            <!-- Task 2: Author field -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="author_id" widget="many2one"/>
+            </xpath>
+            
+            <!-- Task 3: Category field on books -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="category_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo> -->

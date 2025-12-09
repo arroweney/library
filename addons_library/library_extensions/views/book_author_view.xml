@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Add author + category fields to book form -->
-    <record id="view_form_book_inherit_author" model="ir.ui.view">
-        <field name="name">library.book.form.inherit.author</field>
-        <field name="model">library.book</field>
-        <field name="inherit_id" ref="library.view_form_book"/>
+    <!-- Task 3: Book Category Model Views -->
+    <record id="view_tree_book_category" model="ir.ui.view">
+        <field name="name">library.book.category.tree</field>
+        <field name="model">library.book.category</field>
         <field name="arch" type="xml">
-            <!-- Task 2: Author field -->
-            <xpath expr="//field[@name='isbn']" position="after">
-                <field name="author_id" widget="many2one"/>
-            </xpath>
-            
-            <!-- Task 3: Category field on books -->
-            <xpath expr="//field[@name='author_id']" position="after">
-                <field name="category_ids" widget="many2many_tags"/>
-            </xpath>
+            <tree string="Book Categories">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
         </field>
     </record>
+    
+    <record id="view_form_book_category" model="ir.ui.view">
+        <field name="name">library.book.category.form</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+            <form string="Book Category">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_book_category" model="ir.actions.act_window">
+        <field name="name">Book Categories</field>
+        <field name="res_model">library.book.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Task 3: Menu Item -->
+    <menuitem id="menu_book_category"
+              name="Book Categories"
+              parent="library.library_menu_root"
+              action="action_book_category"
+              sequence="30"/>
 </odoo>
